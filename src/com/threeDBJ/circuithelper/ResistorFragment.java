@@ -40,8 +40,13 @@ public class ResistorFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    /**
+     * Deselect the previous color selection and select a new one.
+     *
+     * @param root The root of the view containing the color list
+     * @param id The id of the new color view
+     */
     public void setSelected(View root, int id) {
-	DebugLog.e(TAG, "clicked: "+id);
 	if(id != selected && selected != -1) {
 	    LinearLayout prev = (LinearLayout)root.findViewById(selected);
 	    ((RadioButton)prev.findViewById(R.id.radio)).setChecked(false);
@@ -50,20 +55,47 @@ public class ResistorFragment extends Fragment {
 	selected = id;
     }
 
+    /**
+     * Predicate that indicates whether a color is a valid choice for a resistor bar.
+     *
+     * @param colorIndex The index of the color to check
+     * @param barIndex The bar to check color validity for
+     */
+    public boolean colorIsValid(int colorIndex, int barIndex) {
+	if(barIndex == SIG_FIG1 || barIndex == SIG_FIG2) {
+	    return colorIndex < 10;
+	} else {
+	    return true;
+	}
+    }
+
+    /**
+     * Makes a click listener for the i'th color in the color list.
+     *
+     * @param i The index of the color
+     * @return A click listener that updates the resistor.
+     */
     public OnClickListener makeColorClickListener(final int i) {
 	return new OnClickListener() {
 	    public void onClick(View v) {
-		setSelected(getView(), v.getId());
-		// Change selected resistor bar color
-		setBarColor(getView(), barIds[currentBar], i);
-		barValues[currentBar] = i;
-		setCurrentBar(getView(), currentBar + 1);
+		if(colorIsValid(i, currentBar)) {
+		    // Change selected resistor bar color
+		    setBarColor(getView(), barIds[currentBar], i);
+		    barValues[currentBar] = i;
+		    setCurrentBar(getView(), currentBar + 1);
 
-		updateResistorValue(getView());
+		    updateResistorValue(getView());
+		}
 	    }
 	};
     }
 
+    /**
+     * Makes a click listener for the resistor bars.
+     *
+     * @param i The index of the bar (0 - 3)
+     * @param A click listener that sets the current bar.
+     */
     public OnClickListener makeBarClickListener(final int i) {
 	return new OnClickListener() {
 	    public void onClick(View v) {
@@ -72,6 +104,13 @@ public class ResistorFragment extends Fragment {
 	};
     }
 
+    /**
+     * Set the current (active) resistor bar. Called when a bar is clicked or a new color is selected
+     * and the next bar is selected.
+     *
+     * @param root The root view containing the resistor views.
+     * @param newBar The index of the new bar to select.
+     */
     public void setCurrentBar(View root, int newBar) {
 	ImageView oldBar = (ImageView)root.findViewById(barIds[currentBar]);
 	setImageStroke(oldBar, false);
@@ -81,6 +120,13 @@ public class ResistorFragment extends Fragment {
 	setSelected(root, ids[barValues[currentBar]]);
     }
 
+    /**
+     * A helper method for setCurrentBar that selects or deselects a bar by showing or hiding
+     * the ImageView's outline.
+     *
+     * @param image The ImageView graphic representation of a bar.
+     * @param on Whether the outline should be "turned" on or off
+     */
     public void setImageStroke(ImageView image, boolean on) {
 	GradientDrawable rect = (GradientDrawable)image.getDrawable();
 	if(on) {
@@ -90,12 +136,24 @@ public class ResistorFragment extends Fragment {
 	}
     }
 
+    /**
+     * Sets the color of a resistor bar.
+     *
+     * @param root The root view containing the bar.
+     * @param barId The id of the ImageView that represents the bar.
+     * @param colorIndex The colors array index of the color to set the bar to.
+     */
     public void setBarColor(View root, int barId, int colorIndex) {
 	ImageView bar = (ImageView)root.findViewById(barId);
 	GradientDrawable rect = (GradientDrawable)bar.getDrawable();
 	rect.setColor(getResources().getColor(colors[colorIndex]));
     }
 
+    /**
+     * Calculate and display the value of the resistor from the current bar values.
+     *
+     * @param root The root view containing the bar.
+     */
     public void updateResistorValue(View root) {
 	int exp = multipliers[barValues[MULTIPLIER]];
 	double value = Double.parseDouble(barValues[SIG_FIG1]+""+barValues[SIG_FIG2]);
@@ -107,7 +165,7 @@ public class ResistorFragment extends Fragment {
 	    valueString = " M Ohms";
 	} else if(value >= 1000) {
 	    display = value / 1000.0;
-	    valueString = " K Omhs";
+	    valueString = " K Ohms";
 	} else {
 	    display = value;
 	    valueString = " Ohms";
@@ -125,6 +183,13 @@ public class ResistorFragment extends Fragment {
 	valueText.setText(valueString);
     }
 
+    /**
+     * Inflate and initialize the root View of this Fragment, then restore any previous state.
+     *
+     * @param inflater
+     * @param container
+     * @param savedState
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
         View v = inflater.inflate(R.layout.resistor, container, false);
@@ -132,14 +197,7 @@ public class ResistorFragment extends Fragment {
 	    LinearLayout color = (LinearLayout)v.findViewById(ids[i]);
 	    color.setOnClickListener(makeColorClickListener(i));
 	}
-	if(savedState != null) {
-	    barValues[0] = savedState.getInt("sigFig1", barValues[0]);
-	    barValues[1] = savedState.getInt("sigFig2", barValues[1]);
-	    barValues[2] = savedState.getInt("multiplier", barValues[2]);
-	    barValues[3] = savedState.getInt("tolerance", barValues[3]);
-	    currentBar = savedState.getInt("currentBar", currentBar);
-	    selected = savedState.getInt("selected", selected);
-	}
+	restoreState(savedState);
 	for(int i=0;i<barIds.length;i+=1) {
 	    ImageView bar = (ImageView)v.findViewById(barIds[i]);
 	    bar.setImageDrawable(getResources().getDrawable(R.drawable.resistor_bar));
@@ -163,6 +221,11 @@ public class ResistorFragment extends Fragment {
 	saveState(savedState);
     }
 
+    /**
+     * Save the current GUI state to a bundle.
+     *
+     * @param state The Bundle to save state to
+     */
     public void saveState(Bundle state) {
 	state.putInt("sigFig1", barValues[0]);
 	state.putInt("sigFig2", barValues[1]);
@@ -170,5 +233,21 @@ public class ResistorFragment extends Fragment {
 	state.putInt("tolerance",barValues[3]);
 	state.putInt("currentBar", currentBar);
 	state.putInt("selected", selected);
+    }
+
+    /**
+     * Restore GUI state to the values in a Bundle if they exist, otherwise retain default state
+     *
+     * @param state The Bundle to restore state from
+     */
+    public void restoreState(Bundle state) {
+	if(state != null) {
+	    barValues[0] = state.getInt("sigFig1", barValues[0]);
+	    barValues[1] = state.getInt("sigFig2", barValues[1]);
+	    barValues[2] = state.getInt("multiplier", barValues[2]);
+	    barValues[3] = state.getInt("tolerance", barValues[3]);
+	    currentBar = state.getInt("currentBar", currentBar);
+	    selected = state.getInt("selected", selected);
+	}
     }
 }

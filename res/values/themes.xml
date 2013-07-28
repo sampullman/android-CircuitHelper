@@ -1,0 +1,12 @@
+<resources>
+
+    <style name="CircuitTheme" parent="android:Theme.Holo">
+        <item name="numberPickerStyle">@style/NPWidget.Holo.NumberPicker</item>
+	<item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="CircuitTheme.Light" parent="android:Theme.Holo.Light">
+        <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>
+	<item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

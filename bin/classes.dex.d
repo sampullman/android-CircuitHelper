@@ -1,5 +1,6 @@
 /Users/sampullman/git/android-circuit-helper/bin/classes.dex : \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/BuildConfig.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/CapacitorFragment.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/CircuitHelperActivity.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/DebugLog.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/R$attr.class \
@@ -9,9 +10,19 @@
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/R$layout.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/R$string.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/R$style.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/R$styleable.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/R.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/ResistorFragment$1.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/ResistorFragment$2.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/ResistorFragment.class \
 /Users/sampullman/git/android-circuit-helper/bin/classes/com/threeDBJ/circuithelper/VoltageDividerFragment.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$attr.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$color.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$drawable.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$id.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$layout.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$style.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R$styleable.class \
+/Users/sampullman/git/android-circuit-helper/bin/classes/net/simonvt/numberpicker/R.class \
+/Users/sampullman/git/android-circuit-helper/bin/dexedLibs/classes-8d3b04b8999b8ea4ae8bf9a217a55628.jar \
 /Users/sampullman/git/android-circuit-helper/bin/dexedLibs/android-support-v4-4ed9058e8c1beb5afa143d5bf128781e.jar \

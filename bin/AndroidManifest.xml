@@ -4,12 +4,13 @@
     package="com.threeDBJ.circuithelper"
     android:versionCode="1"
     android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="15" />
   <application
       android:label="@string/app_name"
       android:icon="@drawable/ic_launcher">
     <activity
 	android:name="CircuitHelperActivity"
-	android:theme="@android:style/Theme.NoTitleBar"
+	android:theme="@style/CircuitTheme"
 	android:label="@string/app_name">
       <intent-filter>
 	<action android:name="android.intent.action.MAIN" />

@@ -22,5 +22,7 @@ public class CircuitHelperActivity extends FragmentActivity {
 		       ResistorFragment.class, null);
 	tabHost.addTab(tabHost.newTabSpec("divider").setIndicator("Voltage Divider"),
 		       VoltageDividerFragment.class, null);
+	tabHost.addTab(tabHost.newTabSpec("capacitor").setIndicator("Capacitor"),
+		       CapacitorFragment.class, null);
     }
 }

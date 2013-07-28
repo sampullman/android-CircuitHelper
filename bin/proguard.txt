@@ -1,6 +1,14 @@
 # view res/layout/main.xml #generated:1
 -keep class android.support.v4.app.FragmentTabHost { <init>(...); }
 
-# view AndroidManifest.xml #generated:10
+# view AndroidManifest.xml #generated:11
 -keep class com.threeDBJ.circuithelper.CircuitHelperActivity { <init>(...); }
+
+# view res/layout/capacitor.xml #generated:16
+# view res/layout/capacitor.xml #generated:21
+# view res/layout/capacitor.xml #generated:26
+-keep class net.simonvt.numberpicker.NumberPicker { <init>(...); }
+
+# view res/layout/number_picker_with_selector_wheel.xml #generated:22
+-keep class net.simonvt.numberpicker.NumberPicker$CustomEditText { <init>(...); }
 
