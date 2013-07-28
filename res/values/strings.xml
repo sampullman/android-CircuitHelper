@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CircuitHelperActivity</string>
+
+    <string name="black_mul">x10<sup><small>0</small></sup></string>
+    <string name="brown_mul">x10<sup><small>1</small></sup></string>
+    <string name="red_mul">x10<sup><small>2</small></sup></string>
+    <string name="orange_mul">x10<sup><small>3</small></sup></string>
+    <string name="yellow_mul">x10<sup><small>4</small></sup></string>
+    <string name="green_mul">x10<sup><small>5</small></sup></string>
+    <string name="blue_mul">x10<sup><small>6</small></sup></string>
+    <string name="violet_mul">x10<sup><small>7</small></sup></string>
+    <string name="gray_mul">x10<sup><small>8</small></sup></string>
+    <string name="white_mul">x10<sup><small>9</small></sup></string>
+    <string name="gold_mul">x10<sup><small>-1</small></sup></string>
+    <string name="silver_mul">x10<sup><small>-2</small></sup></string>
+</resources>

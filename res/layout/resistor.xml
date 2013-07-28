@@ -1,0 +1,259 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="#999999">
+  <TextView
+      android:id="@+id/resistor_value"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="0.08"
+      android:gravity="center"
+      android:textSize="20sp"
+      android:textColor="#333333"
+      android:textStyle="bold" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:orientation="horizontal"
+      android:layout_weight="0.15"
+      android:weightSum="1">
+    <ImageView
+	android:id="@+id/sigfig1"
+	style="@style/resistor_display" />
+    <ImageView
+	android:id="@+id/sigfig2"
+	style="@style/resistor_display" />
+    <ImageView
+	android:id="@+id/multiplier"
+	style="@style/resistor_display" />
+    <View
+	android:layout_width="0dp"
+	android:layout_height="match_parent"
+	android:layout_weight="0.2" />
+    <ImageView
+	android:id="@+id/tolerance"
+	style="@style/resistor_display" />
+  </LinearLayout>
+  <LinearLayout
+      style="@style/resistor_color"
+      android:layout_height="0dp"
+      android:layout_weight="0.05">
+    <TextView
+	style="@style/resistor_text"
+	android:layout_weight="0.1"/>
+    <TextView
+	style="@style/resistor_text"
+	android:text="Sig Fig" />
+    <TextView
+	style="@style/resistor_text"
+	android:text="Multiplier" />
+    <TextView
+	style="@style/resistor_text"
+	android:text="Tolerance" />
+  </LinearLayout>
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="0.72">
+    <LinearLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+      <LinearLayout
+	  android:id="@+id/black"
+	  style="@style/resistor_color"
+	  android:background="@color/black">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text_dark"
+	    android:text="0" />
+	<TextView
+	    style="@style/resistor_text_dark"
+	    android:text="@string/black_mul" />
+	<TextView
+	    style="@style/resistor_text_dark"
+	    android:text="-" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/brown"
+	  style="@style/resistor_color"
+	  android:background="@color/brown">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text_dark"
+	    android:text="1" />
+	<TextView
+	    style="@style/resistor_text_dark"
+	    android:text="@string/brown_mul" />
+	<TextView
+	    style="@style/resistor_text_dark"
+	    android:text="±1%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/red"
+	  style="@style/resistor_color"
+	  android:background="@color/red">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="2" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/red_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±2%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/orange"
+	  style="@style/resistor_color"
+	  android:background="@color/orange">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="3" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/orange_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="-" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/yellow"
+	  style="@style/resistor_color"
+	  android:background="@color/yellow">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="4" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/yellow_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±5%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/green"
+	  style="@style/resistor_color"
+	  android:background="@color/green">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="5" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/green_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±0.5%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/blue"
+	  style="@style/resistor_color"
+	  android:background="@color/blue">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="6" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/blue_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±0.25%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/violet"
+	  style="@style/resistor_color"
+	  android:background="@color/violet">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="7" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/violet_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±0.1%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/gray"
+	  style="@style/resistor_color"
+	  android:background="@color/gray">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="8" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/gray_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±0.05% (±10%)" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/white"
+	  style="@style/resistor_color"
+	  android:background="@color/white">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="9" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/white_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="-" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/gold"
+	  style="@style/resistor_color"
+	  android:background="@color/gold">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="-" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/gold_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±5%" />
+      </LinearLayout>
+      <LinearLayout
+	  android:id="@+id/silver"
+	  style="@style/resistor_color"
+	  android:background="@color/silver">
+	<RadioButton
+	    style="@style/resistor_radio" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="-" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="@string/silver_mul" />
+	<TextView
+	    style="@style/resistor_text"
+	    android:text="±10%" />
+      </LinearLayout>
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>
